@@ -5,7 +5,6 @@ const App = () => {
   useEffect(() => {
     console.log('Component mounted');
   }, []);
-
   return <h1 className="title">Hello, World!</h1>;
 };
 
