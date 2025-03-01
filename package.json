@@ -1,0 +1,67 @@
+{
+	"name": "webpack-template",
+	"version": "1.0.0",
+	"description": "A reusable template for Webpack with Prettier and ESLint.",
+	"main": "index.js",
+	"scripts": {
+		"install-dependencies": "npm install --save-dev eslint @eslint/js eslint-plugin-react eslint-plugin-prettier prettier globals webpack webpack-cli webpack-dev-server mini-css-extract-plugin css-loader sass sass-loader babel-loader @babel/core @babel/preset-env @babel/preset-react file-loader html-webpack-plugin ignore-emit-webpack-plugin",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write \"src/**/*.{js,jsx,css,scss,html}\"",
+		"start": "webpack serve --open",
+		"build": "NODE_ENV=production webpack --mode production",
+		"dev": "webpack --mode development",
+		"deploy": "gh-pages -d dist",
+		"prepare": "husky install",
+		"lint:watch": "nodemon --exec 'npm run lint' --ext js,jsx"
+	},
+	"author": "Josh Pablico",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-react": "^7.25.9",
+		"@eslint/js": "^9.14.0",
+		"babel-loader": "^9.2.1",
+		"css-loader": "^7.1.2",
+		"eslint": "^9.14.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-react": "^7.37.2",
+		"file-loader": "^6.2.0",
+		"gh-pages": "^6.2.0",
+		"globals": "^15.12.0",
+		"html-webpack-plugin": "^5.6.3",
+		"husky": "^8.0.0",
+		"ignore-emit-webpack-plugin": "^2.0.6",
+		"lint-staged": "^15.2.10",
+		"mini-css-extract-plugin": "^2.9.2",
+		"nodemon": "^3.1.7",
+		"prettier": "^3.3.3",
+		"sass": "^1.80.6",
+		"sass-loader": "^16.0.3",
+		"webpack": "^5.96.1",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^5.1.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx}": [
+			"eslint --fix",
+			"prettier --write",
+			"git add"
+		],
+		"src/**/*.{css,scss,html}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"dependencies": {
+		"date-fns": "^4.1.0",
+		"react-dom": "^18.3.1"
+	}
+}
