@@ -1,6 +1,176 @@
-.title {
-  width: 100vw;
-  color: red;
-  margin: auto;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .game-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.chess-board {
+  border: 2px solid #333;
+  width: 100%;
+  max-width: 600px;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+  position: relative;
+  width: 12.5%;
+  padding-bottom: 12.5%;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.square.white {
+  background-color: #f0d9b5;
+}
+
+.square.black {
+  background-color: #b58863;
+}
+
+.square.start {
+  background-color: #8bc34a;
+}
+
+.square.end {
+  background-color: #ff9800;
+}
+
+.square.path {
+  background-color: #64b5f6;
+}
+
+.coordinate {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.move-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  color: #000;
+}
+
+.target {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #d32f2f;
+}
+
+.controls {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+@media (min-width: 768px) {
+  .controls {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+}
+
+.reset-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #388e3c;
+}
+
+.path-display {
+  margin-top: 20px;
+}
+
+.path-display h3 {
+  margin-top: 0;
+}
+
+.path-display ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.path-display li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.title {
+  text-align: center;
+  color: #333;
 }

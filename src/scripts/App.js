@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
 import { ChessBoard } from './ChessBoard.js';
 import { knightMoves } from './gameLogic.js';
 
@@ -71,13 +70,5 @@ const App = () => {
     </div>
   );
 };
-
-const container = document.getElementById('app');
-if (container) {
-  const root = createRoot(container);
-  root.render(<App />);
-} else {
-  console.error("Could not find element with id 'app'");
-}
 
 export default App;
