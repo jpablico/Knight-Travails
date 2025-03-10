@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Knight Travails",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"install-dependencies": "npm install --save-dev eslint @eslint/js eslint-plugin-react eslint-plugin-prettier prettier globals webpack webpack-cli webpack-dev-server mini-css-extract-plugin css-loader sass sass-loader babel-loader @babel/core @babel/preset-env @babel/preset-react file-loader html-webpack-plugin ignore-emit-webpack-plugin",
 		"lint": "eslint .",
@@ -13,7 +14,8 @@
 		"dev": "webpack --mode development",
 		"deploy": "gh-pages -d dist",
 		"prepare": "husky install",
-		"lint:watch": "nodemon --exec 'npm run lint' --ext js,jsx"
+		"lint:watch": "nodemon --exec 'npm run lint' --ext js,jsx",
+		"test": "node --experimental-vm-modules node_modules/.bin/jest"
 	},
 	"author": "Josh Pablico",
 	"license": "MIT",
@@ -34,6 +36,7 @@
 		"html-webpack-plugin": "^5.6.3",
 		"husky": "^8.0.0",
 		"ignore-emit-webpack-plugin": "^2.0.6",
+		"jest": "^29.7.0",
 		"lint-staged": "^15.2.10",
 		"mini-css-extract-plugin": "^2.9.2",
 		"nodemon": "^3.1.7",
