@@ -1,4 +1,4 @@
-import getPossibleMoves, { knightMoves } from '../index.js';
+import { getPossibleMoves,knightMoves } from '../gameLogic.js';
 
 describe('getPossibleMoves', () => {
   test('returns 2 valid moves from corner (0,0)', () => {
@@ -11,7 +11,6 @@ describe('getPossibleMoves', () => {
   test('returns 4 valid moves from edge (0,3)', () => {
     const moves = getPossibleMoves(0, 3);
     expect(moves).toHaveLength(4);
-    // You can add specific move checks here if needed
   });
 
   test('returns 8 valid moves from center (3,3)', () => {
@@ -30,7 +29,6 @@ describe('getPossibleMoves', () => {
   test('returns 6 valid moves from position (1,2)', () => {
     const moves = getPossibleMoves(1, 2);
     expect(moves).toHaveLength(6);
-    // You can add specific move checks here if needed
   });
 });
 
@@ -46,7 +44,6 @@ describe('knightMoves', () => {
 
   test('returns correct path from [0,0] to [3,3]', () => {
     const path = knightMoves([0, 0], [3, 3]);
-    // There are two possible shortest paths here
     const validPaths = [
       [
         [0, 0],
@@ -64,7 +61,6 @@ describe('knightMoves', () => {
 
   test('returns correct path from [3,3] to [0,0]', () => {
     const path = knightMoves([3, 3], [0, 0]);
-    // There are two possible shortest paths here
     const validPaths = [
       [
         [3, 3],
@@ -82,7 +78,6 @@ describe('knightMoves', () => {
 
   test('returns path with correct length from [0,0] to [7,7]', () => {
     const path = knightMoves([0, 0], [7, 7]);
-    // The shortest path should have 6 positions (including start and end)
     expect(path.length).toBeLessThanOrEqual(7);
     expect(path[0]).toEqual([0, 0]);
     expect(path[path.length - 1]).toEqual([7, 7]);
@@ -94,7 +89,6 @@ describe('knightMoves', () => {
     for (let i = 1; i < path.length; i++) {
       const [prevX, prevY] = path[i - 1];
       const [currX, currY] = path[i];
-
       const dx = Math.abs(currX - prevX);
       const dy = Math.abs(currY - prevY);
       expect(dx + dy).toBe(3);

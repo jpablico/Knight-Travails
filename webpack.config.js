@@ -1,12 +1,19 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import IgnoreEmitPlugin from 'ignore-emit-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const isProduction = process.env.NODE_ENV === 'production';
-const publicPath = isProduction ? 'https://github.com/jpablico/Knight-Travails' : '/';
+const publicPath = isProduction
+  ? 'https://github.com/jpablico/Knight-Travails'
+  : '/';
 
-module.exports = {
+export default {
   mode: isProduction ? 'production' : 'development',
   entry: ['./src/scripts/index.js', './src/styles/style.scss'],
   output: {
