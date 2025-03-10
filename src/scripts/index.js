@@ -4,8 +4,14 @@ import { createRoot } from 'react-dom/client';
 
 function getPossibleMoves(x, y) {
   const movesOffset = [
-    [2, 1], [2, -1], [-2, 1], [-2, -1],
-    [1, 2], [1, -2], [-1, 2], [-1, -2]
+    [2, 1],
+    [2, -1],
+    [-2, 1],
+    [-2, -1],
+    [1, 2],
+    [1, -2],
+    [-1, 2],
+    [-1, -2],
   ];
 
   let possibleMoves = [];
@@ -24,7 +30,7 @@ function getPossibleMoves(x, y) {
 function knightMoves(start, end) {
   const [startX, startY] = start;
   const [endX, endY] = end;
-  
+
   // Queue will store [x, y, path]
   const queue = [[startX, startY, [start]]];
   const visited = new Set();
@@ -43,14 +49,14 @@ function knightMoves(start, end) {
     for (const [newX, newY] of possibleMoves) {
       if (!visited.has(`${newX},${newY}`)) {
         visited.add(`${newX},${newY}`);
-        
+
         // Create a new path by copying the current path and adding the new position
         const newPath = [...path, [newX, newY]];
         queue.push([newX, newY, newPath]);
       }
     }
   }
-  
+
   // If no path is found (shouldn't happen on a standard chess board)
   return null;
 }

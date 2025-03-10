@@ -4,7 +4,7 @@ const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
-const publicPath = isProduction ? '/<REPLACE THIS WITH REPO>/' : '/';
+const publicPath = isProduction ? 'https://github.com/jpablico/Knight-Travails' : '/';
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
